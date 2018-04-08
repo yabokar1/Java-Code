@@ -1,0 +1,99 @@
+	public static String removeRepeats(String str) {
+
+		if (str.length() < 2) {
+
+			return str;
+		}
+
+		if (str.charAt(0) == str.charAt(1)) {
+			return removeRepeats(str.substring(1));
+		}
+
+		return str.charAt(0) + removeRepeats(str.substring(1));
+
+	}
+  
+  
+  	public static int binaryToInt(String b) {
+
+		if (b.length() == 1) {
+
+			int result = Integer.parseInt(b);
+			return result;
+		}
+
+		else {
+			char c = b.charAt(0);
+			String x = "" + c;
+			int result2 = Integer.parseInt(x);
+
+			int power = (int) Math.pow(2, b.length() - 1);
+			int end = result2 * power;
+
+			return end + binaryToInt(b.substring(1, b.length()));
+
+		}
+    
+    
+    	public static String intToBinary(int value) {
+
+		if (value == 1 || value == 0) {
+
+			String newValue = Integer.toString(value);
+			return newValue;
+		}
+
+		else {
+
+			if (value % 2 == 0) {
+
+				int value2 = 0;
+				String newValue2 = Integer.toString(value2);
+				return intToBinary(value / 2) + newValue2;
+
+			}
+
+			String newValue3 = Integer.toString(1);
+			return intToBinary(value / 2) + newValue3;
+		}
+
+	}
+public static int findTarget(List<Integer> t, int target) {
+
+		int x = 0;
+		if (t.size() == 0) {
+
+			return -1;
+		}
+
+		if (t.get(0) == target) {
+
+			return 0;
+
+		}
+
+		if (t.size() == -1 && t.get(0) != target) {
+
+			return -1;
+		}
+
+		else {
+
+			x = findTarget(t.subList(1, t.size()), target);
+
+		}
+
+		if (x == -1) {
+
+			return -1;
+		}
+
+		else {
+
+			return 1 + x;
+		}
+
+	}
+  
+  
+	}
